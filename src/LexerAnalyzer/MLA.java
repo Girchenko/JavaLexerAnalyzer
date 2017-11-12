@@ -1,0 +1,18 @@
+package LexerAnalyzer;
+
+public class MLA {
+    public static void main(String s[]) {
+        Lexer lexer = new Lexer("inputData.txt");
+
+        while (!lexer.isExausthed()) {
+            System.out.printf("%-18s %s\n", lexer.currentToken(), lexer.currentLexema());
+            lexer.moveAhead();
+        }
+
+        if (lexer.isSuccessful()) {
+            System.out.println("Analysys was finished successfully!");
+        } else {
+            System.out.println(lexer.errorMessage());
+        }
+    }
+}
